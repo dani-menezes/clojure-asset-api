@@ -11,7 +11,7 @@
 
 (defn fetch-price [symbol]
   ;; Fetch price from a public API
-  (let [response (client/get (str "https://api.example.com/price?symbol=" symbol)
+  (let [response (client/get (str "https://query1.finance.yahoo.com/v7/finance/quote?symbols=" symbol)
                              {:as :json})]
     (if (= 200 (:status response))
       (let [data (:body response)]

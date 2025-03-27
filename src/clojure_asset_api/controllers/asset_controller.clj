@@ -1,7 +1,6 @@
 (ns clojure-asset-api.controllers.asset-controller
   (:require [clojure-asset-api.entities.asset :refer [->Asset]]
-            [clj-http.client :as client]
-            [cheshire.core :as json]))
+            [clojure-asset-api.integrations.finnhub :as finnhub]))
 
 (defn get-categories []
   ;; Fetch categories from a config file or database
@@ -10,10 +9,8 @@
    :Energy ["XOM" "CVX"]})
 
 (defn fetch-price [symbol]
-  ;; Fetch price from a public API
-  (let [response (client/get (str "https://query1.finance.yahoo.com/v7/finance/quote?symbols=" symbol)
-                             {:as :json})]
-    (if (= 200 (:status response))
-      (let [data (:body response)]
-        {:name (:name data) :symbol symbol :price (:price data)})
-      {:error "Unable to fetch price"})))
+  ;; Fetch price using Finnhub API
+  (let [quote (finnhub/fetch-quote symbol)]
+    (if (:error quote)
+      quote
+      {:name symbol :symbol symbol :price (:c quote)})))

@@ -7,8 +7,8 @@
 (defroutes app-routes
   (GET "/assets/categories" []
     (json/generate-string (controller/get-categories)))
- (GET "/price" [symbol]  ; Destructures the query param directly
-   (do
+ (GET "/price" req
+   (let [symbol (get-in req [:query-params "symbol"])]
      (println "Received symbol:" symbol)
      (json/generate-string (controller/fetch-price symbol))))
   (route/not-found "Not Found"))

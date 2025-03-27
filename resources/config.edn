@@ -1,0 +1,3 @@
+{:categories {:Financial ["AAPL" "JPM"]
+              :BigTech ["GOOG" "MSFT"]
+              :Energy ["XOM" "CVX"]}}

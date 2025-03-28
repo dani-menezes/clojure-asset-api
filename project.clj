@@ -4,6 +4,7 @@
                  [ring/ring-core "1.9.0"]
                  [ring/ring-jetty-adapter "1.9.0"]
                  [compojure "1.6.2"]
+                 [ring-cors "0.1.13"]
                  [clj-http "3.12.3"]
                  [cheshire "5.10.0"]
                  [com.taoensso/timbre "5.1.2"]]

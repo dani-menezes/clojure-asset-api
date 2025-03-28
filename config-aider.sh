@@ -1,0 +1,11 @@
+#!/bin/bash
+# Aider API keys config
+#
+# Anthropic = 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
+# OpenAI = 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
+#
+#
+openAi_api_key=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
+#anthropic_api_key=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
+#aider --openai-api-key $openAi_api_key --anthropic-api-key $anthropic_api_key
+aider --openai-api-key $openAi_api_key

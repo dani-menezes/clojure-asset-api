@@ -7,7 +7,8 @@
                  [ring-cors "0.1.13"]
                  [clj-http "3.12.3"]
                  [cheshire "5.10.0"]
-                 [com.taoensso/timbre "5.1.2"]]
+                 [com.taoensso/timbre "5.1.2"]
+                 [seancorfield/next.jdbc "1.2.780"]]
   :main ^:skip-aot clojure-asset-api.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})

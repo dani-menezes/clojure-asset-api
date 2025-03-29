@@ -7,14 +7,14 @@
     (if (:error quote)
       quote
       (let [asset-data {:symbol symbol
-                        :price (:c quote)
-                        :change (:d quote)
-                        :percentChange (:dp quote)
-                        :high (:h quote)
-                        :low (:l quote)
-                        :open (:o quote)
-                        :previous (:pc quote)
-                        :timestamp (:t quote)
+                        :price_current (:c quote)
+                        :price_change (:d quote)
+                        :price_percent (:dp quote)
+                        :price_high (:h quote)
+                        :price_low (:l quote)
+                        :price_open (:o quote)
+                        :price_prev_close (:pc quote)
+                        :quote_timestamp (:t quote)
                         :request-timestamp (System/currentTimeMillis)}]
         (db/save-asset asset-data)
         asset-data))))

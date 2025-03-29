@@ -5,7 +5,7 @@
 (def api-key "cvili61r01qijvgj4g7gcvili61r01qijvgj4g80")
 
 (defn fetch-quote [symbol]
-  (print (str "https://finnhub.io/api/v1/quote?symbol=" symbol "&token=" api-key) )
+  (print (str "\n" "https://finnhub.io/api/v1/quote?symbol=" symbol "&token=" api-key) )
   (let [url (str "https://finnhub.io/api/v1/quote?symbol=" symbol "&token=" api-key)
         headers {"X-Finnhub-Secret" api-key}
         response (client/get url {:headers headers :as :json})]
